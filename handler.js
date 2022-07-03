@@ -1337,7 +1337,6 @@ break
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isCreator) throw mess.owner
-                if (isAdmins) throw mess.admin
                 if (args[0] === 'close'){
                     await kagura.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`Sukses Menutup Group`)).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'open'){
