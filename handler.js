@@ -1029,7 +1029,7 @@ break
                 kagura.sendMessage(m.chat, reactionMessage)
             }
             break  
-            case 'join': case 'msk': {
+            case 'join': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw 'Masukkan Link Group!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
@@ -1038,7 +1038,7 @@ break
                 await kagura.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
-            case 'leave': case 'klr': {
+            case 'leave': {
                 if (!isCreator) throw mess.owner
                 await kagura.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
@@ -1395,7 +1395,6 @@ break
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isCreator) throw mess.owner
-                if (isAdmins) throw mess.admin
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return m.reply(`Sudah Aktif Sebelumnya`)
                 db.data.chats[m.chat].mute = true
